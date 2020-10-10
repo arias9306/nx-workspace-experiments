@@ -16,3 +16,43 @@ After run this command we need to set the following params
 ? CLI to power the Nx Workspace         : Nx
 ? Use Nx Cloud?                         : No
 ```
+
+## Configure commitlint, conventionalCommits and husky
+
+```
+npm install --save-dev @commitlint/config-conventional @commitlint/cli
+```
+
+```
+echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
+```
+
+```
+npm install husky --save-dev
+```
+
+Add `husky` to the `package.json` file
+
+```
+{
+  ...
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
+```
+
+### Type
+Must be one of the following:
+
+* **build**: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
+* **ci**: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
+* **docs**: Documentation only changes
+* **feat**: A new feature
+* **fix**: A bug fix
+* **perf**: A code change that improves performance
+* **refactor**: A code change that neither fixes a bug nor adds a feature
+* **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+* **test**: Adding missing tests or correcting existing tests
