@@ -44,9 +44,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "nx format:write && nx workspace-lint && nx lint && nx affected:test",
+      "pre-commit": "nx format:write && nx affected:lint && nx affected:test",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }
 }
-
