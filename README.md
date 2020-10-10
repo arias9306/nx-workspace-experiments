@@ -70,8 +70,8 @@ npm install husky --save-dev
 
 Add `husky` to the `package.json` file with the following configuration:
 
- - **pre-commit**: we run the `nx format:write` command in order to format all the code before every commit and then we run the `nx affected:lint` to run the lint only for the affected code and at the end we run the `nx affected:test` command to run the test for the affected code.
- - **commit-msg**: we run the commilint to be sure that the commit message meets with the configuration.
+- **pre-commit**: we run the `nx format:write` command in order to format all the code before every commit and then we run the `nx affected:lint` to run the lint only for the affected code and at the end we run the `nx affected:test` command to run the test for the affected code.
+- **commit-msg**: we run the commilint to be sure that the commit message meets with the configuration.
 
 ```
 {
@@ -98,3 +98,29 @@ Must be one of the following:
 - **refactor**: A code change that neither fixes a bug nor adds a feature
 - **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
 - **test**: Adding missing tests or correcting existing tests
+
+#### Examples of commits
+
+```
+git commit -m 'docs: update readme.md'
+```
+
+or
+
+```
+git commit -m 'feat(auth): add the auth.controller'
+```
+
+## Add the Angular and Nest pluging
+
+To add Angular and Nest we need to run the followings commands
+
+```
+npm install --save-dev @nrwl/angular
+```
+
+and
+
+```
+npm install --save-dev @nrwl/nest
+```
