@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ApiService } from './services/api.service';
 
 @Component({
   selector: 'nx-workspace-experiments-root',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'front';
+  apiMessage$: Observable<string>;
+
+  constructor(private apiService: ApiService) {
+    this.apiMessage$ = this.apiService.getApiMessage();
+  }
 }
