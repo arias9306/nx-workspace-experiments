@@ -125,7 +125,7 @@ and
 npm install --save-dev @nrwl/nest
 ```
 
-##  Add an Angular and Nest App
+## Add an Angular and Nest App
 
 In order to generate a Nest App we need to run the following command
 
@@ -135,3 +135,6 @@ nx generate @nrwl/nest:application --name=api
 
 now we add the Angular App
 
+```
+nx generate @nrwl/angular:application --name=front --style=scss --backendProject=api --linter=eslint --routing --strict
+```
