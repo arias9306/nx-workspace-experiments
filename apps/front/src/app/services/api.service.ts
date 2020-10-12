@@ -4,14 +4,14 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
-
-  constructor(private httpClient: HttpClient) { }
-
+  constructor(private httpClient: HttpClient) {}
 
   getApiMessage(): Observable<string> {
-    return this.httpClient.get<{ message: string }>('http://localhost:3333/api').pipe(map((x) => x.message));
+    return this.httpClient
+      .get<{ message: string }>('http://localhost:3333/api')
+      .pipe(map((x) => x.message));
   }
 }

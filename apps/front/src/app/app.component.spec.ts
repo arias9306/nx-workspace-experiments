@@ -5,20 +5,22 @@ import { ApiService } from './services/api.service';
 import { of } from 'rxjs';
 
 const mockApiService = () => ({
-  getApiMessage: jest.fn()
+  getApiMessage: jest.fn(),
 });
 
 describe('AppComponent', () => {
-
   let apiService: ApiService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule],
       declarations: [AppComponent],
-      providers: [{
-        provide: ApiService, useFactory: mockApiService
-      }]
+      providers: [
+        {
+          provide: ApiService,
+          useFactory: mockApiService,
+        },
+      ],
     }).compileComponents();
 
     apiService = TestBed.inject(ApiService);
@@ -30,15 +32,12 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-
   it('should render the api message', () => {
-    jest.spyOn(apiService, "getApiMessage").mockReturnValue(of('ApiMessage'));
+    jest.spyOn(apiService, 'getApiMessage').mockReturnValue(of('ApiMessage'));
 
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain(
-      'ApiMessage'
-    );
+    expect(compiled.querySelector('h1').textContent).toContain('ApiMessage');
   });
 });
