@@ -138,3 +138,46 @@ now we add the Angular App
 ```
 nx generate @nrwl/angular:application --name=front --style=scss --backendProject=api --linter=eslint --routing --strict
 ```
+
+## Adding a ui library
+
+Now we are going to create a angular library for the UI components
+
+```
+nx generate @nrwl/angular:library --name=ui --style=scss --directory=front --linter=eslint
+```
+
+after that we create a profile component inside of ui
+
+```
+nx generate @schematics/angular:component --name=profile --project=front-ui --style=scss --changeDetection=OnPush --export
+```
+
+now in order to import the `profile.component.ts` in our `front` app, we need to import the `FrontUiModule` in the `app.module.ts`
+
+```typescript
+...
+import { FrontUiModule } from '@nx-workspace-experiments/front/ui';
+
+@NgModule({
+  ...
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot([], { initialNavigation: 'enabled' }),
+    HttpClientModule,
+    FrontUiModule
+  ],
+  ...
+})
+export class AppModule {}
+```
+
+
+add material lib
+
+nx generate @nrwl/angular:library --name=material --style=scss --directory=front --linter=eslint
+
+
+add data-models lib
+
+nx generate @nrwl/workspace:library --name=data-models

@@ -32,6 +32,15 @@
     "front-e2e": {
       "tags": [],
       "implicitDependencies": ["front"]
+    },
+    "front-ui": {
+      "tags": []
+    },
+    "front-material": {
+      "tags": []
+    },
+    "data-models": {
+      "tags": []
     }
   }
 }

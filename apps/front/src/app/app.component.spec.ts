@@ -1,8 +1,10 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ApiService } from './services/api.service';
 import { of } from 'rxjs';
+
+import { AppComponent } from './app.component';
+import { ApiService } from './services/api.service';
 
 const mockApiService = () => ({
   getApiMessage: jest.fn(),
@@ -21,6 +23,7 @@ describe('AppComponent', () => {
           useFactory: mockApiService,
         },
       ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
 
     apiService = TestBed.inject(ApiService);

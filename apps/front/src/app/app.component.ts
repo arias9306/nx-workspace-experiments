@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Profile } from '@nx-workspace-experiments/data-models';
 import { Observable } from 'rxjs';
+
 import { ApiService } from './services/api.service';
 
 @Component({
@@ -12,5 +14,9 @@ export class AppComponent {
 
   constructor(private apiService: ApiService) {
     this.apiMessage$ = this.apiService.getApiMessage();
+  }
+
+  save(profile: Profile) {
+    console.log(profile);
   }
 }

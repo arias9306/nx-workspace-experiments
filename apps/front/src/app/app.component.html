@@ -1,2 +1,5 @@
 <h1>{{ apiMessage$ | async }}</h1>
+<nx-workspace-experiments-profile
+  (submit)="save($event)"
+></nx-workspace-experiments-profile>
 <router-outlet></router-outlet>
