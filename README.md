@@ -172,12 +172,18 @@ import { FrontUiModule } from '@nx-workspace-experiments/front/ui';
 export class AppModule {}
 ```
 
+### Adding Angular Material Lib
 
-add material lib
+We are going to create a library to import and export all the Angular Material components and shared in our apps.
 
+```
 nx generate @nrwl/angular:library --name=material --style=scss --directory=front --linter=eslint
+```
 
+### Adding a data-models lib
 
-add data-models lib
+This library is used to shared interfaces between our apps.
 
+```
 nx generate @nrwl/workspace:library --name=data-models
+```
