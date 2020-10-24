@@ -187,3 +187,48 @@ This library is used to shared interfaces between our apps.
 ```
 nx generate @nrwl/workspace:library --name=data-models
 ```
+
+## Firebase
+
+We are going to create a firebase account to use `Cloud Firestore` to save our data and then also use `Hosting` to publish our app.
+
+first we need to install the firebase CLI
+
+```
+npm i -g firebase-tools
+```
+
+After that we need to login running the following command
+
+```
+firebase login
+```
+
+And then now we are going to add `@angular/fire` and `firebase` packages in our monorepo
+
+```
+npm i @angular/fire firebase --save
+```
+
+> NOTE: I will skip the firebase part, but basicaly in firebase we created a new project and also created a `colection` in the Cloud Firestore
+
+### Add the firebase config
+
+Now we need to add the firebase config into the `enviroment.ts` and `enviroment.prod.ts` in the `front` project
+
+```typescript
+ ...
+  firebaseConfig: {
+    apiKey: '<your-api-key>',
+    authDomain: '*****',
+    databaseURL: '*****',
+    projectId: '*****',
+    storageBucket: '*****',
+    messagingSenderId: '*****',
+    appId: '*****',
+    measurementId: '*****',
+  }
+ ...
+```
+
+You can find the configuration info in the firebase console configuration.
