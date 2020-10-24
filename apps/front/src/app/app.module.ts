@@ -6,6 +6,9 @@ import { FrontUiModule } from '@nx-workspace-experiments/front/ui';
 
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment.prod';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +18,8 @@ import { RouterModule } from '@angular/router';
     RouterModule.forRoot([], { initialNavigation: 'enabled' }),
     HttpClientModule,
     FrontUiModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,8 +1,8 @@
-import { TestBed, waitForAsync } from '@angular/core/testing';
 import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ApiService } from './api.service';
 

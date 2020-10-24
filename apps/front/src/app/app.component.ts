@@ -3,6 +3,7 @@ import { Profile } from '@nx-workspace-experiments/data-models';
 import { Observable } from 'rxjs';
 
 import { ApiService } from './services/api.service';
+import { StoreService } from './services/store.service';
 
 @Component({
   selector: 'nx-workspace-experiments-root',
@@ -12,11 +13,17 @@ import { ApiService } from './services/api.service';
 export class AppComponent {
   apiMessage$: Observable<string>;
 
-  constructor(private apiService: ApiService) {
+  constructor(
+    private apiService: ApiService,
+    private storeService: StoreService
+  ) {
     this.apiMessage$ = this.apiService.getApiMessage();
   }
 
   save(profile: Profile) {
-    console.log(profile);
+    this.storeService
+      .save(profile)
+      .then((response) => console.log(response))
+      .catch((error) => console.error(error));
   }
 }
