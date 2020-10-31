@@ -1,4 +1,4 @@
-<form [formGroup]="profileForm" (ngSubmit)="save()">
+<form [formGroup]="profileForm">
   <mat-card>
     <mat-card-title>Profile</mat-card-title>
     <mat-card-subtitle>Please fill the form</mat-card-subtitle>
@@ -59,8 +59,17 @@
     <mat-card-actions align="end">
       <button
         mat-raised-button
+        color="warn"
+        type="button"
+        (click)="cancel()"
+        *ngIf="mode === 'edit'"
+      >
+        Cancel
+      </button>
+      <button
+        mat-raised-button
         color="primary"
-        type="submit"
+        (click)="save()"
         [disabled]="profileForm.invalid"
       >
         Save

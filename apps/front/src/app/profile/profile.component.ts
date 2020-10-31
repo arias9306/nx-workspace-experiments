@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Profile } from '@nx-workspace-experiments/data-models';
 import { StoreService } from '../services/store.service';
 
@@ -8,12 +9,19 @@ import { StoreService } from '../services/store.service';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent {
-  constructor(private storeService: StoreService) {}
+  constructor(
+    private storeService: StoreService,
+    private snackBar: MatSnackBar
+  ) {}
 
   save(profile: Profile) {
     this.storeService
       .save(profile)
-      .then((response) => console.log(response))
+      .then(() =>
+        this.snackBar.open('Record saved successfuly', undefined, {
+          duration: 3000,
+        })
+      )
       .catch((error) => console.error(error));
   }
 }

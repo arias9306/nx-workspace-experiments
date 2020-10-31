@@ -4,4 +4,5 @@ export interface Profile {
   phone: number;
   address: string;
   about: string;
+  id: string;
 }
