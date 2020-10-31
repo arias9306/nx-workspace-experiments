@@ -1,5 +1,9 @@
-<h1>{{ apiMessage$ | async }}</h1>
-<nx-workspace-experiments-profile
-  (submit)="save($event)"
-></nx-workspace-experiments-profile>
-<router-outlet></router-outlet>
+<mat-toolbar color="primary">
+  <span>Nx Workspace Experiments</span>
+  <a mat-button routerLink="profile">Profile</a>
+  <a mat-button routerLink="directory">Directory</a>
+</mat-toolbar>
+<div fxLayout="column" fxLayoutAlign="space-around center">
+  <h1>{{ apiMessage$ | async }}</h1>
+  <router-outlet></router-outlet>
+</div>
