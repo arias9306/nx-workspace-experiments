@@ -7,6 +7,9 @@ import { StoreService } from '../services/store.service';
 
 import { ProfileComponent } from './profile.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FrontUiModule } from '@nx-workspace-experiments/front/ui';
+import { FrontMaterialModule } from '@nx-workspace-experiments/front/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const mockStoreService = () => ({
   save: jest.fn(),
@@ -18,6 +21,7 @@ const profile: Profile = {
   about: '',
   address: '',
   phone: 0,
+  id: '',
 };
 
 describe('ProfileComponent', () => {
@@ -31,6 +35,9 @@ describe('ProfileComponent', () => {
       imports: [
         AngularFireModule.initializeApp(environment.firebaseConfig),
         AngularFirestoreModule,
+        FrontUiModule,
+        FrontMaterialModule,
+        BrowserAnimationsModule,
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [{ provide: StoreService, useFactory: mockStoreService }],
