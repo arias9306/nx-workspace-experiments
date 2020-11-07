@@ -24,4 +24,8 @@ export class StoreService {
   update(profile: Profile) {
     this.firestore.doc(`profiles/${profile.id}`).update(profile);
   }
+
+  delete(id: string) {
+    this.firestore.doc(`profiles/${id}`).delete();
+  }
 }
