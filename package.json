@@ -11,6 +11,8 @@
     "serve:front": "nx serve front",
     "test:front": "nx test front --codeCoverage=true --coverage",
     "test:api": "nx test api --codeCoverage=true --coverage",
+    "test:front-ui": "nx test front-ui --codeCoverage=true --coverage",
+    "test:all": "npm run test:front && npm run test:front-ui && npm run test:api",
     "lint": "nx workspace-lint && nx lint",
     "e2e": "nx e2e",
     "affected:apps": "nx affected:apps",
